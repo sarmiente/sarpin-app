@@ -1,0 +1,40 @@
+---
+import Laptop from "../../assets/laptop.svg"
+import Agendar from "../buttons/Agendar.astro"
+
+---
+
+<section class="bg-white w-full h-screen place-content-center overflow-hidden">
+    <div class="mx-auto w-full pl-4 sm:pl-6 lg:pl-8">
+      <div class="grid grid-cols-1 h-screen gap-4 lg:grid-cols-2 items-center lg:gap-8">
+        <div class="text-left mt-20">
+          <h1 words-slide-from-right
+        text-split class="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl text-black font-heading font-bold">
+              Agenda tu primer sesión de consultoría.
+              <br>
+              <span class="text-second uppercase font-heading text-shadow-lg">sin costo</span>
+              
+          </h1>
+          <h2 scrub-each-word text-split class="text-2xl sm:leading-20 font-body text-gray-900 sm:text-4xl" >
+              ¡Renueva tu imagen digital ahora!
+          </h2>
+     
+          <div class="mt-3 flex gap-4 sm:mt-6">
+          
+            <Agendar />
+          </div>
+        </div>
+  
+        <div class="justify-center h-screen hidden lg:flex">
+         <spline-viewer url="https://prod.spline.design/e93XQTFw0wdijxyk/scene.splinecode"></spline-viewer>
+        </div>
+
+      </div>
+      
+    </div>
+    
+  </section>
+
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.56/build/spline-viewer.js"></script>
+
+  

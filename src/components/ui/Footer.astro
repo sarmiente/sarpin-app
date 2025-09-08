@@ -1,0 +1,235 @@
+---
+import Logo from "../../assets/SARPIN_AGENCY.svg";
+import Favicon from "../../assets/favicon.svg";
+
+const FooterLinks = [
+  {
+    title: "Links",
+    items: [
+      {
+        text: "Nosotros",
+        href: "/nosotros",
+      },
+      {
+        text: "Blog",
+        href: "/blog",
+      },
+      {
+        text: "Servicios",
+        href: "/servicios",
+      },
+    ],
+  },
+  {
+    title: "Legal",
+    items: [
+      {
+        text: "Política de Privacidad",
+        href: "/politica-privacidad",
+      },
+      {
+        text: "Términos y condiciones",
+        href: "/terminos-condiciones",
+      },
+      {
+        text: "Cookies",
+        href: "/cookies",
+      },
+    ],
+  },
+];
+
+const links = FooterLinks[0].items;
+const legal = FooterLinks[1].items;
+---
+
+<footer class="space-y-5">
+  <div class="grid grid-cols-1 md:grid-cols-2 bg-second/90 py-10 ">
+    <div
+      class="m-auto flex flex-col items-center text-center md:text-left md:gap-2 "
+    >
+    
+      <h1
+        class="text-5xl md:text-5xl lg:text-8xl font-body"
+        words-slide-from-left
+        text-split
+      >
+        Trabajemos
+        <br /> Juntos 👋
+      </h1>
+    </div>
+
+    <div
+      class="m-auto flex flex-col items-center md:flex-row md:text-left md:gap-2 reveal font-body"
+    >
+      <form
+        id="contact-form"
+        action="https://formsubmit.co/your_email@example.com"
+        method="post"
+        class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-3xl mx-auto p-4 sm:p-6"
+      >
+        <!-- Hidden fields -->
+        <input
+          type="hidden"
+          name="_subject"
+          value="New form submission from folex website"
+        />
+        <input type="hidden" name="_template" value="table" />
+
+        <!-- Full Name -->
+        <div class="flex flex-col border-b">
+          <input
+            type="text"
+            name="Full Name"
+            placeholder="Nombre Completo*"
+            class="form-input w-full"
+            required
+          />
+        </div>
+
+        <!-- Email -->
+        <div class="flex flex-col border-b">
+          <input
+            type="email"
+            name="Email Address"
+            placeholder="Correo electronico *"
+            class="form-input w-full"
+            required
+          />
+        </div>
+
+        <!-- Subject -->
+        <div class="flex flex-col md:col-span-2 border-b">
+          <select name="Subject" class="form-input w-full text-dark" required>
+            <option value="">Selecciona un tema *</option>
+            <option value="Desarrollo de Paginas Web">Desarrollo Paginas Web</option>
+            <option value="Marketing Digital SEO"
+              >Marketing Digital SEO</option
+            >
+            <option value="Diseño de Marca"
+              >Diseño de Marca</option
+            >
+          </select>
+        </div>
+
+        <!-- Message -->
+        <div class="flex flex-col md:col-span-2 border-b">
+          <textarea
+            rows="4"
+            name="Message"
+            placeholder="¿Cómo podemos ayudarte?, Dejanos tu mensaje *"
+            class="form-input w-full"
+            required></textarea>
+        </div>
+
+        <!-- User Source -->
+        <div class="flex flex-col md:col-span-2">
+          <label class="form-label mb-2">¿Cómo escuchaste acerca de nosotros?</label>
+          <div class="flex flex-col gap-4">
+            <label class="flex items-center gap-2">
+              <input
+                value="Google"
+                type="radio"
+                name="User Source"
+                class="form-radio accent-main"
+                required
+              />
+              <span>Google</span>
+            </label>
+            <label class="flex items-center gap-2">
+              <input
+                value="Redes Sociales"
+                type="radio"
+                name="User Source"
+                class="form-radio accent-main"
+                required
+              />
+              <span>Redes Sociales</span>
+            </label>
+          
+          
+      <div class="form-check flex space-x-2 ">
+  <input
+    value="Agreed"
+    type="checkbox"
+    name="Agreed Privacy"
+    id="privacy-policy"
+    class="accent-main"
+    required
+  />
+  <label for="privacy-policy" class="text-xs">
+    Acepto los
+    <a class="hover:underline hover:text-info" href="/terminos-condiciones">términos y condiciones</a> y la 
+    <a class="hover:underline hover:text-info" href="/politica-privacidad">política de privacidad</a>.
+  </label>
+</div>
+
+          </div>
+          
+        </div>
+
+        <!-- Submit Button -->
+        <div class="flex justify-end md:col-span-2">
+          <button
+            type="submit"
+            class="bg-main px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition"
+          >
+            Enviar mensaje
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2">
+    <div
+      class="m-auto flex flex-col items-center text-center md:flex-row md:text-left md:gap-2"
+    >
+      <Favicon class="size-10" />
+      <p class="text-xl font-body">
+        Transformamos su visión empresarial
+        <br /> en experiencias digitales únicas.
+      </p>
+    </div>
+
+    <div class="hidden md:grid grid-cols-2">
+      <div>
+        <p class="font-heading uppercase text-lg">Links</p>
+        <ul>
+          {
+            links.map((item) => (
+              <li class="group">
+                <a href={item.href} class="font-body text-md hover:text-main ">
+                  {item.text}
+                </a>
+                <div class="h-[0.2px] ml-auto duration-300 origin-left transform bg-main scale-x-20 group-hover:scale-x-100" />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <p class="font-heading uppercase text-lg">Legal</p>
+        <ul>
+          {
+            legal.map((item) => (
+              <li class="group">
+                <a href={item.href} class="font-body hover:text-main">
+                  {item.text}
+                </a>
+                <div class="h-[0.2px] ml-auto duration-300 origin-left transform bg-main scale-x-20 group-hover:scale-x-100" />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto opacity-35">
+    <!-- Brand Logo -->
+    <a href="/" class="">
+      <Logo width="auto" height="auto" />
+    </a>
+  </div>
+</footer>

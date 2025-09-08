@@ -1,0 +1,27 @@
+---
+import { siteTitle } from "../../../site.config";
+
+import { ClientRouter } from "astro:transitions";
+
+const {title} = Astro.props;
+
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Primary Meta Tags -->
+<title>{title ? `${title} | Sarpin Devs` : "Sarpin Devs - Agencia de Desarrollo Web en Colombia"}</title>
+<meta name="title" content={title ? `${title} | Diseño y desarollo web en Barranquilla ` : "Sarpin Devs"} />
+<meta name="description"  />
+
+<!-- Split Type CDN -->
+<script is:inline src="https://unpkg.com/split-type"></script>
+<!-- jQuery CDN -->
+<script is:inline src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- Transition View -->
+<ClientRouter />
+

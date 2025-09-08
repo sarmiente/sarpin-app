@@ -1,0 +1,256 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const services = [
+  {
+  "title": "Diseño y Desarrollo Web",
+  "url": "",
+  "description": "Creamos sitios web y aplicaciones a medida con tecnologías modernas. Desde diseños responsivos hasta plataformas de e-commerce, entregando soluciones escalables.",
+  "features": [
+    "Astro",
+    "React & Next.js",
+    "WordPress",
+    "Soluciones E-commerce",
+    "Integración de APIs",
+    "Optimización de rendimiento"
+  ],
+  "icon": "code"
+},
+{
+  "title": "Diseño y arquitectura de marca",
+  "url": "",
+  "description": "Creamos diseños de marca memorables, desarrollamos una identidad visual coherente y construimos una arquitectura de marca completa que garantiza consistencia, reconocimiento y confianza en cada punto de contacto con tu audiencia.",
+  "features": [
+    "Investigación de usuarios",
+    "Wireframes & prototipado",
+    "Identidad de marca",
+    "Sistemas de diseño"
+  ],
+  "icon": "palette"
+},
+{
+  "title": "Marketing Digital",
+  "url": "",
+  "description": "Estrategias de marketing basadas en datos que hacen crecer tu presencia online. Desde SEO hasta campañas en redes sociales, te ayudamos a llegar a tu audiencia ideal y lograr un crecimiento medible.",
+  "features": [
+    "Optimización SEO",
+    "Estrategia de contenidos",
+    "Marketing en redes sociales",
+    "Analítica & reportes"
+  ],
+  "icon": "trending-up"
+}
+
+]
+---
+
+<Layout>
+
+     <section
+    class="relative pt-32 pb-20 bg-gradient-to-br from-main to-main/70 overflow-hidden"
+  >
+    <div class="absolute inset-0">
+      <div
+        class="absolute top-15 left-10 w-72 h-60 bg-second/20 rounded-full blur-3xl"
+      >
+      </div>
+      <div
+        class="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"
+      >
+      </div>
+    </div>
+
+
+        <!-- Header -->
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1
+        class="text-5xl lg:text-6xl font-bold font-heading text-white mb-6 leading-tight">Nuestro portafolio de 
+        <span class="block text-second">
+            Servicios Digitales
+        </span>
+      </h1>
+      <p class="text-xl text-white max-w-3xl mx-auto leading-relaxed font-body">
+        Ayudamos a las empresas a crecer en el mundo digital con soluciones integrales que combinan tecnología de vanguardia, diseño impactante y estrategias de marketing efectivas.
+      </p>
+      
+    </div>
+
+
+    
+  </section>
+
+
+    
+
+<section class="py-24 px-4 bg-background">
+  <div class="max-w-7xl mx-auto">
+  
+
+    <!-- Services Card Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((service) => (
+        <div class="group bg-card border-2 border-border rounded-xl p-8 hover:border-primary hover:shadow-lg transition-all duration-300">
+          <div class="w-16 h-16 bg-second rounded-xl flex items-center justify-center mb-6 group-hover:bg-main/10 transition-colors">
+            {service.icon === "code" && (
+              <svg class="w-8 h-8 text-main" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+              </svg>
+            )}
+            {service.icon === "palette" && (
+              <svg class="w-8 h-8" version="1.1" id="Uploaded to svgrepo.com" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="150px" height="150px" viewBox="0 0 32 32" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .linesandangles_een{fill:#111918;} </style> <path class="linesandangles_een" d="M20,20.854c0-1.136,0.642-2.175,1.658-2.683L24,17L17,3h-2L8,17l2.342,1.171 C11.358,18.679,12,19.718,12,20.854V21h-2v8h12v-8h-2V20.854z M11.236,16.382l-0.553-0.276L15,7.472V15h2V7.472l4.317,8.633 l-0.553,0.276C19.059,17.234,18,18.948,18,20.854V21h-4v-0.146C14,18.948,12.941,17.234,11.236,16.382z M20,27h-8v-4h8V27z"></path> </g></svg>
+            )}
+            {service.icon === "trending-up" && (
+              <svg class="w-8 h-8 text-main" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+              </svg>
+            )}
+          </div>
+          
+          <h3 class="text-2xl font-bold font-heading mb-4">{service.title}</h3>
+          <p class="font-body mb-6 leading-relaxed ">{service.description}</p>
+          
+          <div class="space-y-3">
+            <h4 class="font-semibold font-heading text-sm uppercase tracking-wide">Soluciones</h4>
+            <ul class="space-y-2">
+              {service.features.map((feature) => (
+                <li class="flex items-center text-sm font-body">
+                  <div class="w-1.5 h-1.5 bg-main rounded-full mr-3 flex-shrink-0"></div>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="pt-5 text-center">
+            <button class="bg-main hover:bg-second p-2 rounded-xl text-white hover:text-black">
+            <a href={service.url} class=" font-body">Saber más</a>
+          </button>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+      <section class="py-10 lg:py-20 mx-auto">
+   <div class="mx-auto px-5 w-full max-w-7xl ">
+      <h1 class="font-body text-lg md:text-xl font-light mr-[5%] float-left tracking-normal"
+      >
+        Servicios
+      </h1>
+      <p class="text-xl md:text-2xl lg:text-4xl font-body">
+        Sarpin Agency ofrece estrategia, creatividad, branding y desarrollo, con procesos sólidos y eficientes que aseguran resultados duraderos y de alto impacto para tu negocio.
+      </p>
+    </div>
+  </section>
+
+
+  <section>
+    <div class="bg-second relative py-16 md:py-20 lg:mt-28 lg:py-28 px-5">
+      <div class="container">
+        <div class="grid grid-cols-1 gap-10 lg:grid-cols-5 lg:gap-36">
+          <div
+            data-aos="reveal-anim-left"
+            data-aos-delay="300"
+            data-aos-offset="0"
+            class="-top-28 h-full w-full lg:absolute lg:w-[calc(50%-8rem)] xl:w-[calc(50%-13rem)] lg:start-0 "
+          >
+            <img
+              src="https://folex-astro.netlify.app/_astro/about-one.CEWbeE6w_Z1mA5mo.webp"
+              alt="Highlighted Info Block"
+              loading="lazy"
+              decoding="async"
+              fetchpriority="auto"
+              width="1257"
+              height="1095"
+              class="h-full w-full object-cover"
+            />
+          </div>
+          <div class="space-y-12 lg:col-span-3 lg:col-start-3 lg:ml-[20%]">
+            <div class="space-y-8">
+              <h2 class="text-3xl md:text-5xl lg:text-7xl font-heading">
+                Impulsamos tu crecimiento digital
+              </h2>
+              <p class="font-body">
+               Cuando nuestros clientes hablan de trabajar con nosotros, destacan el compromiso genuino que tenemos con su éxito. Creemos que las relaciones reales son la base del verdadero crecimiento. Nos apasiona construir marcas. <br
+                /><br />
+
+              Somos una agencia creativa que colabora con marcas para desarrollar estrategias inteligentes, diseñar propuestas únicas y crear valor a largo plazo.
+              </p>
+            </div>
+                <div class="group">
+                    <a class="btn font-body text-lg uppercase md:text-xl" href="/nosotros">
+                Nosotros
+              </a>
+              <div class="h-[0.2px] ml-auto duration-300 origin-left transform bg-main scale-x-15 group-hover:scale-x-30" />
+                </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="w-full mx-auto py-20">
+    
+    <h2 class="font-heading tracking-wide uppercase text-center leading-[37px] lg:leading-[62.50px] text-[30px] lg:text-[50px] w-full lg:max-w-[50%] pb-2 mx-auto">
+      Proyectos recientes
+    </h2>
+    <p class="font-body text-base md:text-[22px] text-center tracking-tight font-jost text-text-gray leading-[33px] lg:max-w-[60%] mx-auto">
+      Cada proyecto es una oportunidad para transformar ideas en resultados reales. En esta sección encontrarás una muestra de nuestros ultimos proyectos, donde creatividad, estrategia e innovación se unen para generar experiencias digitales que impulsan a las marcas a crecer y destacar en su mercado.
+    </p>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-12 ">
+      
+    <div class="w-full flex flex-col gap-4 ">
+        <a href="https://brsolution.com.co/" target="_blank">
+            <img src="/959shots_so.png" alt="Screenshot BR Solutions Project" />
+        </a>
+        <p class="flex flex-col tracking-tight leading-9 mx-auto">
+          <span class="text-primary-200 text-lg lg:text-[25px] font-heading"
+            >BR Solutions</span
+          >
+          <span class="text-text-gray-200 text-base lg:text-lg font-body"
+            >Inmobiliaria / API Wasi Integration</span
+          >
+        </p>
+      </div>
+      
+      <div class="w-full flex flex-col gap-4">
+        <a href="https://wesell.com.co/" target="_blank">
+            <img src="/757shots_so.png" alt="Screenshot WESELL Project" />
+        </a>
+        <p class="flex flex-col tracking-tight leading-9 mx-auto"
+        >
+          <span class="text-primary-200 text-lg lg:text-[25px] font-heading"
+            >WESELL</span
+          ><span class="text-text-gray-200 text-base lg:text-lg font-body"
+            >Logistics / Desarrollo Web + SEO On site</span
+          >
+        </p>
+      </div>
+      
+      <div class="w-full flex flex-col gap-4 ">
+        <a href="https://rcisas.com/" target="_blank">
+            <img src="/175shots_so.png" alt="Screenshot RCI Project" />
+        </a>
+        <p class="flex flex-col tracking-tight leading-9 mx-auto">
+          <span class="text-primary-200 text-lg lg:text-[25px] font-heading"
+            >RCI</span
+          ><span class="text-text-gray-200 text-base lg:text-lg font-body"
+            >Tecnologia / Desarrollo Web</span
+          >
+        </p>
+      </div>
+      
+      
+    </div>
+  </section>
+
+  
+</Layout>
+

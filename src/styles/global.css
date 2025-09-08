@@ -1,0 +1,21 @@
+
+@import "tailwindcss";
+ 
+
+@theme {
+      /* Colores base */
+--color-main: #284B63;    /* Indigo dye */
+--color-second: #e3ff04;  
+--color-light: #D9D9D9;    /* Platinum */
+--color-dark: #353535;       /* Jet */
+--color-mid: #AEC3B0;       /* Ash gray */
+
+/* Colores funcionales */
+--color-success: #4CAF50;    /* Verde estándar para web */
+--color-warning: #FFB74D;    /* Ámbar más claro y distinguible */
+--color-error: #F44336;      /* Rojo estándar para errores */
+--color-info: #2196F3;       /* Nuevo color para mensajes informativos */
+--font-heading: 'NATS', sans-serif;
+--font-body: "Poppins", sans-serif;
+    
+}

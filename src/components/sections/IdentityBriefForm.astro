@@ -1,0 +1,154 @@
+---
+---
+
+
+<form 
+  name="identity-brief" 
+  method="POST" 
+  class="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg space-y-6"
+>
+  <h2 class="text-2xl font-bold mb-4 text-center">Brief para Identidad Corporativa</h2>
+
+  <!-- A) Empresa -->
+  <div>
+    <label class="block mb-1 font-semibold">Nombre de la empresa o marca *</label>
+    <input 
+      type="text" 
+      name="company_name" 
+      required 
+      class="w-full border rounded p-2"
+    />
+  </div>
+
+  <div>
+    <label class="block mb-1 font-semibold">Historia o descripción breve</label>
+    <textarea 
+      name="company_history" 
+      rows="3" 
+      class="w-full border rounded p-2"
+    ></textarea>
+  </div>
+
+  <div>
+    <label class="block mb-1 font-semibold">Productos o servicios principales</label>
+    <textarea 
+      name="products_services" 
+      rows="2" 
+      class="w-full border rounded p-2"
+    ></textarea>
+  </div>
+
+  <div>
+    <label class="block mb-1 font-semibold">Público objetivo</label>
+    <input 
+      type="text" 
+      name="target_audience" 
+      class="w-full border rounded p-2"
+    />
+  </div>
+
+  <div>
+    <label class="block mb-1 font-semibold">Competencia principal</label>
+    <textarea 
+      name="competitors" 
+      rows="2" 
+      class="w-full border rounded p-2"
+    ></textarea>
+  </div>
+
+  <!-- B) Personalidad -->
+  <div>
+    <label class="block mb-1 font-semibold">Describe la personalidad de la marca</label>
+    <textarea 
+      name="brand_personality" 
+      rows="2" 
+      class="w-full border rounded p-2"
+    ></textarea>
+  </div>
+
+  <div>
+    <label class="block mb-1 font-semibold">Valores clave</label>
+    <input 
+      type="text" 
+      name="brand_values" 
+      class="w-full border rounded p-2"
+    />
+  </div>
+
+  <!-- C) Estilo Visual -->
+  <div>
+    <label class="block mb-1 font-semibold">Colores preferidos</label>
+    <input 
+      type="text" 
+      name="preferred_colors" 
+      class="w-full border rounded p-2"
+    />
+  </div>
+
+  <div>
+    <label class="block mb-1 font-semibold">Colores que no quiere usar</label>
+    <input 
+      type="text" 
+      name="unwanted_colors" 
+      class="w-full border rounded p-2"
+    />
+  </div>
+
+  <div>
+    <label class="block mb-1 font-semibold">Ejemplos de logos que le gustan (links)</label>
+    <textarea 
+      name="logo_examples" 
+      rows="2" 
+      class="w-full border rounded p-2"
+    ></textarea>
+  </div>
+
+  <!-- D) Aplicaciones -->
+  <div>
+    <label class="block mb-1 font-semibold">Dónde se usará el logo</label>
+    <textarea 
+      name="logo_applications" 
+      rows="2" 
+      class="w-full border rounded p-2"
+    ></textarea>
+  </div>
+
+  <!-- E) Tiempos -->
+  <div>
+    <label class="block mb-1 font-semibold">Plazo deseado de entrega</label>
+    <input 
+      type="text" 
+      name="deadline" 
+      class="w-full border rounded p-2"
+    />
+  </div>
+
+  <!-- Datos de contacto -->
+  <div>
+    <label class="block mb-1 font-semibold">Nombre de contacto *</label>
+    <input 
+      type="text" 
+      name="contact_name" 
+      required 
+      class="w-full border rounded p-2"
+    />
+  </div>
+
+  <div>
+    <label class="block mb-1 font-semibold">Correo electrónico *</label>
+    <input 
+      type="email" 
+      name="contact_email" 
+      required 
+      class="w-full border rounded p-2"
+    />
+  </div>
+
+  <!-- Botón -->
+  <button 
+    type="submit"
+    class="w-full bg-blue-600 text-white py-3 rounded hover:bg-blue-700 transition"
+  >
+    Enviar Brief
+  </button>
+</form>

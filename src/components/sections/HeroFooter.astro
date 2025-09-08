@@ -1,0 +1,107 @@
+---
+import Agendar from "../buttons/Agendar.astro";
+
+
+---
+
+<section class="relative h-screen w-full overflow-hidden">
+  <canvas id="heroCanvas" class="absolute top-0 left-0 w-full h-full"></canvas>
+  <div
+    class="space-y-2 p-5 relative z-10 flex flex-col justify-center items-center h-full text-center"
+  >
+    
+    <h1
+      class="text-4xl sm:text-6xl font-heading uppercase text-shadow-lg shadow-emerald-950 mb-4 opacity-0 translate-y-8"
+    >
+      Diseñamos marcas y productos
+      <span class="text-main uppercase">memorables </span>
+      <br />
+      que conectan con el público
+    </h1>
+    <Agendar />
+  </div>
+</section>
+
+<script>
+  import * as THREE from "three";
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Three.js setup
+  const canvas = document.querySelector("#heroCanvas");
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(
+    75,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    1000
+  );
+  // @ts-ignore
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  // Create particles
+  const particlesGeometry = new THREE.BufferGeometry();
+  const particlesCount = 5000;
+  const posArray = new Float32Array(particlesCount * 3);
+
+  for (let i = 0; i < particlesCount * 3; i++) {
+    posArray[i] = (Math.random() - 0.5) * 5;
+  }
+
+  particlesGeometry.setAttribute(
+    "position",
+    new THREE.BufferAttribute(posArray, 3)
+  );
+
+  const particlesMaterial = new THREE.PointsMaterial({
+    size: 0.002,
+    color: "#000000",
+  });
+
+  const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+  scene.add(particlesMesh);
+
+  camera.position.z = 2;
+
+  // Animation
+  const animate = () => {
+    requestAnimationFrame(animate);
+    particlesMesh.rotation.y += 0.001;
+    renderer.render(scene, camera);
+  };
+
+  animate();
+
+
+  // GSAP Animations
+  gsap.to("h1", {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    delay: 0.5,
+  });
+
+  gsap.to("p", {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    delay: 0.8,
+  });
+
+  gsap.to("button", {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    delay: 0.9,
+  });
+
+  // Handle resize
+  window.addEventListener("resize", () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+</script>

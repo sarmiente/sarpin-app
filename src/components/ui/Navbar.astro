@@ -1,0 +1,252 @@
+---
+import Logo from "../../assets/SARPIN_AGENCY.svg";
+import Insta from "../../icons/instagram.svg";
+import EnvelopSVG from "../../icons/envelop.svg"
+import WhatsappSVG from "../../icons/whatsapp.svg"
+const links = [
+  {
+    url: "/",
+    text: "Inicio",
+  },
+  {
+    url: "/nosotros",
+    text: "Nosotros",
+  },
+  {
+    url: "/servicios",
+    text: "Servicios",
+  },
+  {
+    url: "/blog",
+    text: "Blog",
+  },
+  {
+    url: "/contacto",
+    text: "Contacto",
+  },
+];
+
+const yearDate = new Date().getFullYear();
+---
+
+<nav
+  x-data="{ mobileMenuIsOpen: false }"
+  x-on:click.away="mobileMenuIsOpen = false"
+  class="grid grid-cols-2 sm:grid-cols-3 p-2 w-full  z-20 bg-white" 
+>
+  <!-- Icono lateral izquierdo -->
+  <div class="hidden sm:flex items-center gap-2 text-sm">
+    <div class="flex items-center gap-1">
+      <EnvelopSVG class="size-4" />
+    <a href="mailto:info@sarpin.agency" target="_blank" class="hover:cursor-pointer font-body ">
+      
+      info@sarpin.agency
+    </a>
+    </div>
+    <div class="items-center gap-1 hidden lg:flex">
+      <WhatsappSVG class="size-4 " />
+    <a target="_blank" href="https://api.whatsapp.com/send/?phone=573332319305" 
+    class="hover:cursor-pointer font-body ">
+      +57 333 321 9305
+    </a>
+    </div>
+  </div>
+
+  
+  <div class="flex justify-center items-center">
+    <a href="/" class="hover:cursor-pointer">
+      <Logo width="auto" height={24} />
+    </a>
+  </div>
+
+  <!-- Botón menú móvil -->
+  <div class="flex justify-end items-center">
+    <button
+      x-on:click="mobileMenuIsOpen = !mobileMenuIsOpen"
+      x-bind:aria-expanded="mobileMenuIsOpen"
+      x-bind:class="mobileMenuIsOpen ? 'fixed top-6 right-4 z-20' : null"
+      type="button"
+      class="cursor-pointer"
+      aria-label="mobile menu"
+      aria-controls="mobileMenu"
+    >
+      <svg
+        x-cloak
+        x-show="!mobileMenuIsOpen"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        class="sm:size-8 size-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Menú móvil -->
+  <div
+    x-cloak
+    x-show="mobileMenuIsOpen"
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="-translate-x-full"
+    x-transition:enter-end="translate-x-0"
+    x-transition:leave="transition ease-out duration-300"
+    x-transition:leave-start="translate-x-0"
+    x-transition:leave-end="-translate-x-full"
+    id="mobileMenu"
+    class="fixed inset-0 overflow-y-auto h-screen w-screen z-10 bg-main flex flex-col"
+  >
+    <!-- Contenedor principal con flex para distribuir contenido -->
+    <div class="flex flex-col h-full">
+      <!-- Botón cerrar -->
+      <div class="flex justify-end p-4">
+        <button
+          x-on:click="mobileMenuIsOpen = false"
+          type="button"
+          class="cursor-pointer text-white"
+          aria-label="close mobile menu"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            class="sm:size-8 size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Enlaces (con flex-grow para que ocupe el espacio disponible) -->
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 items-center justify-center"
+      >
+        <ul class="flex flex-col justify-center gap-4 px-5">
+          {
+            links.map((item) => (
+              <li class="hover:-translate-y-3 hover:translate-x-3 transition">
+                <a
+                  href={item.url}
+                  class="md:text-8xl text-white sm:text-6xl text-5xl font-heading hover:text-second"
+                  aria-current="page"
+                >
+                  {item.text}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+
+        <div class="p-4 xl:p-6">
+        
+          <!-- Card Blog -->
+        <div class="w-full px-4 py-2 sm:px-10 lg:py-14 mx-auto bg-white rounded-xl">
+          <!-- Grid -->
+          <div class="grid lg:grid-cols-1 gap-6">
+            <!-- Card -->
+            <a class="group sm:flex rounded-xl focus:outline-hidden bg-light hover:scale-105 transition" href="#">
+              <div
+                class="shrink-0 relative rounded-xl overflow-hidden h-50 sm:w-62.5 sm:h-87.5 w-full"
+              >
+                <img
+                  class="size-full absolute top-0 start-0 object-cover"
+                  src="https://images.unsplash.com/photo-1664574654529-b60630f33fdb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=560&q=80"
+                  alt="Blog Image"
+                />
+              </div>
+
+              <div class="grow">
+                <div class="p-4 flex flex-col h-full sm:p-6">
+                  <div class="mb-3">
+                    <p
+                      class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-md text-xs font-medium bg-dark text-white"
+                    >
+                      Categoria
+                    </p>
+                  </div>
+                  <h3
+                    class="text-lg md:text-2xl font-semibold text-gray-800 group-hover:second group-focus:text-warning"
+                  >
+                    Preline becomes an official Instagram Marketing Partner
+                  </h3>
+                  <p class="mt-2 text-gray-500">
+                    Great news we're eager to share.
+                  </p>
+
+                  
+                </div>
+              </div>
+            </a>
+            <!-- End Card -->
+          </div>      
+         <div class="mt-5">
+           <button class="bg-dark hover:bg-second p-2 rounded-xl">
+            <a class="text-white font-heading text-base" href="">Ver todos los articulos</a>  
+          </button>  
+         </div>
+        </div>
+        </div>
+
+      </div>
+
+       <!--
+      <div class="flex flex-col justify-center items-center py-7 gap-2 px-4 mt-5 text-center bg-mid">
+        <p class="font-body text-xl sm:text-3xl md:text-4xl uppercase">
+          Síguenos en Instagram
+        </p>
+        
+          <a href="/" class="hover:cursor-pointer">
+            <Insta class="size-6 sm:size-12" />
+          </a>
+      
+      </div>
+      
+ -->
+
+      
+  
+     <!-- Sección inferior con términos y condiciones (se mantiene al final) -->
+      <div class="mt-auto py-4 px-4 ">
+        <div class="container mx-auto">
+
+          <div class="font-body flex flex-col sm:flex-row sm:justify-between items-center space-y-3 sm:space-y-0 text-white">
+
+            <p class="text-xs  text-center sm:text-left">
+              Sarpin Agency &copy; {yearDate}. Todos los derechos reservados.
+            </p>
+      
+            <ul class="flex flex-wrap justify-center sm:justify-end gap-4 text-xs  px-4">
+              <li>
+                <a href="/terminos-condiciones" class=" transition hover:text-second hover:underline"> 
+                  Términos y condiciones 
+                </a>
+              </li>
+      
+              <li>
+                <a href="/politica-privacidad" class=" transition hover:text-second hover:underline"> 
+                  Política de privacidad
+                </a>
+              </li>
+      
+              <li>
+                <a href="#" class="transition hover:text-second hover:underline"> Cookies </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+  </div>
+</nav>

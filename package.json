@@ -12,9 +12,14 @@
 	},
 	"dependencies": {
 		"@astrojs/cloudflare": "^12.6.8",
-		"astro": "^5.13.6"
+		"@tailwindcss/vite": "^4.1.13",
+		"alpinejs": "^3.15.0",
+		"astro": "^5.13.6",
+		"gsap": "^3.13.0",
+		"tailwindcss": "^4.1.13"
 	},
 	"devDependencies": {
+		"@types/alpinejs": "^3.13.11",
 		"@types/node": "^24.3.1",
 		"wrangler": "^4.34.0"
 	}

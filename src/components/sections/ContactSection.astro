@@ -1,0 +1,102 @@
+---
+
+---
+
+<main id="content"class="container mx-auto">
+  <section class="overflow-hidden w-full mx-auto max-w-[1920px] pt-20 invisible absolute">
+    <h1 class="text-xl text-center text-wrap">Your message has been sent!</h1>
+    <div class="relative aspect-[3/2] sm:aspect-[2/1]">
+      <div class="absolute w-[130%] top-[6%] left-1/2 -translate-x-1/2 flex">
+        <span class="text-center text-[min(15vw,64px)] whitespace-nowrap">&nbsp;Ohhhh yeeeeeeah!!&nbsp;</span>
+        <span class="text-center text-[min(15vw,64px)] whitespace-nowrap">&nbsp;Ohhhh yeeeeeeah!!&nbsp;</span>
+      </div>
+      <div class="absolute w-[80%] sm:w-[33%] top-[8%] left-1/2 -translate-x-1/2 aspect-[225/256] overflow-hidden">
+        <div class="relative w-full h-full">
+          <img src="/images/ooohh-yeah.webp" alt="" class="absolute w-[200%] h-full max-w-none" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="mx-auto px-4 max-w-[1920px] grid grid-cols-1 md:grid-cols-2 gap-x-10 xl:gap-x-[120px] gap-y-10 pt-12">
+    <section>
+      <h1 class="sr-only">Contact</h1>
+      <a class="text-ink text-xl sm:text-2xl underline break-words" href="mailto:info@elegantseagulls.com">
+        info@sarpin.agency
+      </a>
+    </section>
+
+    <section>
+      <h2 class="text-ink text-3xl sm:text-4xl mb-8 xl:mb-[140px]">
+        Let’s start something big together.
+      </h2>
+
+      <form method="post" action="/contact" data-discover="true">
+        <input type="hidden" name="_captcha" />
+
+        <div class="grid gap-8">
+          <!-- Your Information -->
+          <fieldset>
+            <legend class="text-ink uppercase text-sm font-medium block mb-2">Your information</legend>
+            <div class="grid gap-4">
+              <!-- Name -->
+              <div>
+                <label for="name">Name</label>
+                <div class="relative after:absolute after:inset-x-0 after:bottom-[-1px] after:h-[3px] after:bg-pink after:opacity-0 focus-within:after:opacity-100 transition-opacity duration-200">
+                  <input required placeholder="John Doe" class="w-full py-4 border-b border-ink focus:outline-none" type="text" id="name" name="name" />
+                </div>
+              </div>
+              <!-- Email -->
+              <div>
+                <label for="email">Email</label>
+                <div class="relative after:absolute after:inset-x-0 after:bottom-[-1px] after:h-[3px] after:bg-pink after:opacity-0 focus-within:after:opacity-100 transition-opacity duration-200">
+                  <input required placeholder="jdoe@yourcompany.com" class="w-full py-4 border-b border-ink focus:outline-none" type="email" id="email" name="email" />
+                </div>
+              </div>
+              <!-- Phone -->
+              <div>
+                <label for="phone">Phone</label>
+                <div class="relative after:absolute after:inset-x-0 after:bottom-[-1px] after:h-[3px] after:bg-pink after:opacity-0 focus-within:after:opacity-100 transition-opacity duration-200">
+                  <input placeholder="906.867.5309" class="w-full py-4 border-b border-ink focus:outline-none" type="text" id="phone" name="phone" />
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Services -->
+          <fieldset>
+            <legend class="text-ink uppercase text-sm font-medium block mb-2">How can we help</legend>
+            <div class="grid sm:grid-cols-2 gap-2">
+              <!-- Checkboxes (repetir con diferente value/label/id) -->
+              <div class="grid grid-cols-[auto_1fr] items-center gap-2 px-2 py-1 bg-green relative">
+                <button type="button" role="checkbox" aria-checked="false" data-state="unchecked" value="Website" id="Website" class="size-3 bg-white focus:outline outline-pink outline-offset-2 outline-2" title=""></button>
+                <input type="checkbox" aria-hidden="true" name="service" value="Website" tabindex="-1" class="sr-only" />
+                <label for="Website" class="text-ink text-base w-full cursor-pointer">Website</label>
+              </div>
+              <!-- ...replica los otros con Ecommerce, Branding, etc -->
+            </div>
+          </fieldset>
+
+          <!-- Message -->
+          <div>
+            <label for="message" class="text-ink uppercase text-sm font-medium block mb-2">Type your message</label>
+            <div class="relative after:absolute after:inset-x-0 after:bottom-[-1px] after:h-[3px] after:bg-pink after:opacity-0 focus-within:after:opacity-100 transition-opacity duration-200">
+              <textarea placeholder="Tell us about your project" class="w-full py-4 border-b border-ink min-h-[6rem] resize-none focus:outline-none" id="message" name="message"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <button class="inline-flex items-center text-ink text-center rounded-full bg-green hover:bg-ink hover:text-white px-6 h-14 md:h-16 text-lg mt-6 transition-colors duration-200" type="submit">
+          Submit
+        </button>
+      </form>
+
+      <div class="mt-4 text-xs text-gray">
+        This site is protected by reCAPTCHA and the Google
+        <a class="underline" href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a>
+        and
+        <a class="underline" href="https://policies.google.com/terms" target="_blank">Terms of Service</a> apply.
+      </div>
+    </section>
+  </div>
+</main>

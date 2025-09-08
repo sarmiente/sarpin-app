@@ -1,0 +1,222 @@
+---
+import Layout from "../layouts/Layout.astro";
+import envelop from "../icons/envelop.svg"
+const values = [
+  {
+    title: "Transparencia",
+    icon: "👁️",
+    description:
+      "Comunicación clara, información accesible y confianza mutua.",
+  },
+  {
+    title: "Trabajo en equipo",
+    icon: "👥",
+    description:
+      "Cada miembro aporta su talento y fortalezas, multiplicando resultados.",
+  },
+  {
+    title: "Tenacidad",
+    icon: "💪",
+    description:
+      "El equipo se mantiene firme en la búsqueda de objetivos, aprendiendo de los errores.",
+  },
+  {
+    title: "Transformación",
+    icon: "🔄",
+    description:
+      "El cambio no es forzado, sino consecuencia natural de un proceso sano.",
+  },
+];
+---
+
+<Layout title="Nosotros">
+  <section
+    class="relative pt-32 pb-20 bg-gradient-to-br from-main to-main/70 overflow-hidden"
+  >
+    <div class="absolute inset-0">
+      <div
+        class="absolute top-15 left-10 w-72 h-60 bg-second/20 rounded-full blur-3xl"
+      >
+      </div>
+      <div
+        class="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"
+      >
+      </div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1
+        class="text-5xl lg:text-6xl font-bold font-heading text-white mb-6 leading-tight"
+      >
+        Construyendo experiencias digitales
+        <span class="block text-second"
+          >Con creatividad, innovación y propósito</span
+        >
+      </h1>
+      <p class="text-xl text-white max-w-3xl mx-auto leading-relaxed font-body">
+        Somos un equipo apasionado de innovadores digitales, comprometidos con
+        transformar negocios a través de un diseño excepcional, un desarrollo de
+        calidad y un enfoque estratégico.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 class="text-4xl font-bold text-dark text-heading mb-6">
+            Nuestra Historia
+          </h2>
+          <div class="space-y-6 text-lg text-dark text-body leading-relaxed">
+            <p>
+              Con cerca de una década de trayectoria en diseño y desarrollo web,
+              Sarpin Agency, fundada en 2025, nació como un grupo reducido de
+              creativos y desarrolladores convencidos de que las experiencias
+              digitales de calidad tienen el poder de impulsar a las empresas.
+            </p>
+            <p>
+              A lo largo del tiempo hemos transformado nuestra forma de
+              trabajar, adoptado nuevas tecnologías y perfeccionado nuestros
+              procesos. Sin embargo, nuestra misión principal sigue siendo la
+              misma: desarrollar soluciones digitales que no solo destaquen por
+              su diseño, sino que también generen resultados reales para los
+              negocios.
+            </p>
+            <p>
+              Cada proyecto que asumimos representa una oportunidad para ir más
+              allá de los límites y superar las expectativas.
+            </p>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="aspect-w-4 aspect-h-3">
+            <img
+              src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Our team at work"
+              class="w-full h-96 object-cover rounded-2xl shadow-2xl"
+            />
+          </div>
+          <div
+            class="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-r from-second to-second/60 rounded-2xl flex items-center justify-center shadow-xl"
+          >
+            <div class="text-center">
+              <div class="text-2xl font-bold">8+</div>
+              <div class="text-sm">Años</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-10 lg:py-20 mx-auto">
+    <div class="mx-auto px-5 w-full max-w-7xl">
+      <h1
+        class="font-body text-lg md:text-xl font-light mr-[5%] float-left tracking-normal"
+      >
+        Nosotros
+      </h1>
+      <p class="text-xl md:text-2xl lg:text-4xl font-body">
+        Sarpin Agency se caracteriza por la pasión en la innovación web y él
+        marketing digital, siempre en búsqueda de mejorar la experiencia digital
+        de los clientes a través de la web.
+      </p>
+    </div>
+  </section>
+
+  <section class="w-full bg-main h-[60vh] flex items-center">
+    <div class="mx-auto flex flex-col lg:w-1/2 px-5 lg:px-0 text-center">
+      <h1 class="text-5xl md:text-7xl pb-4 font-heading text-white">
+        ¿Por que elegirnos?
+      </h1>
+      <p class="text-base md:text-xl pb-5 font-body text-white">
+        Estamos comprometidos en la entrega de resultados excepcionales.
+      </p>
+      <p class="text-base md:text-xl pb-5 font-body text-white">
+        Nos enfocamos en posicionar cada sitio en los primeros resultados de
+        búsqueda de su sector, aumentando así el tráfico hacia su plataforma de
+        la manera más orgánica posible.
+      </p>
+      <button
+        class="rounded-[18px] flex capitalize items-center justify-center gap-[9px] text-base lg:text-lg font-semibold font-body leading-snug tracking-tight px-10 py-5 md:px-[54px] md:py-[26px] bg-second hover:bg-dark hover:text-white"
+        type="button"
+        >
+        <a href="#contact-form">Contactar</a>
+        
+        <svg
+          width="19"
+          height="17"
+          viewBox="0 0 19 17"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          ><path
+            d="M2 8.43536L15.7232 8.29851M10.6182 1.91132L17.1412 8.4343L10.4868 15.0887"
+            stroke="#CDA274"
+            stroke-width="2"
+            stroke-linecap="square"
+            stroke-linejoin="round"></path>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <div class="min-h-screen">
+    <section class="py-20 bg-gradient-to-br from-slate-50 to-slate-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-dark font-heading mb-6">
+            Nuestros valores
+          </h2>
+          <p
+            class="text-xl text-dark max-w-3xl mx-auto leading-relaxed font-body"
+          >
+            Estos principios orientan todo lo que hacemos y definen la manera en
+            que abordamos cada proyecto y relación con nuestros clientes.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {
+            values.map((value, index) => (
+              <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center">
+                <div class="w-14 h-14 text-2xl bg-gradient-to-r from-second/60 to-second rounded-xl flex items-center justify-center mx-auto mb-6">
+{value.icon}
+
+                </div>
+                <h3 class="text-2xl font-bold text-dark font-heading mb-4">
+                  {value.title}
+                </h3>
+                <p class="text-dark font-body leading-relaxed">
+                  {value.description}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-dark">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-4xl font-bold text-white mb-6 font-heading">
+          ¿Preparado para dar el siguiente paso con nosotros?
+        </h2>
+        <p class="text-xl text-white mb-8 leading-relaxed font-body">
+          Hablemos de tu proyecto y descubramos cómo podemos ayudarte a hacer
+          realidad tu visión.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+           <a href="/servicios">
+          <button
+            class="cursor-pointer bg-white text-dark px-8 py-4 rounded-lg font-semibold  hover:text-main transition-all duration-200 transform hover:scale-105 shadow-lg font-body"
+          >
+        Ver Servicios         
+          </button>
+           </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

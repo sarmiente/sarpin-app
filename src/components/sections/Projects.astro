@@ -1,0 +1,113 @@
+---
+
+---
+<section id="sectionPin" class="h-screen overflow-hidden flex bg-black text-white">
+
+  <div class="pin-wrap w-full h-screen flex items-center flex-shrink-0">
+    
+    <!-- PANEL 1 -->
+    <div class="panel h-screen flex items-center justify-center  w-full sm:w-auto">
+      <h2 class="text-2xl sm:text-4xl font-body text-center sm:text-left w-full sm:min-w-[60vw] px-4 sm:px-[5vw]">
+        Han depositado su confianza en nuestro trabajo.
+      </h2>
+    </div>
+
+   <!-- PANEL 2 -->
+   <div class="panel bg-amber-300 w-[100vw] h-screen items-center justify-center">
+    <h2 class="text-xl sm:text-2xl font-medium font-body mt-10 text-center">
+      Redes Conexiones e Ingeniería
+    </h2>
+    <img
+      src="rci_project.svg"
+      alt="BR Solution"
+      class="hidden lg:flex"
+    />
+    <img
+      src="/939shots.svg"
+      alt="BR Solution"
+      class="lg:hidden flex w-[80vw]"
+    />
+    <h2 class="text-xl sm:text-2xl font-medium font-body mt-10 text-center">
+      Sector
+    </h2>
+  </div>
+    
+     <!-- PANEL 2 -->
+     <div class="panel bg-amber-300 h-screen items-center justify-center">
+      <h2 class="text-xl sm:text-2xl font-medium font-body mt-10 text-center">
+        Redes Conexiones e Ingeniería
+      </h2>
+      <img
+        src="rci_project.svg"
+        alt="BR Solution"
+        class="hidden lg:flex"
+      />
+      <img
+        src="/939shots.svg"
+        alt="BR Solution"
+        class="lg:hidden flex w-[80vw]"
+      />
+      <h2 class="text-xl sm:text-2xl font-medium font-body mt-10 text-center">
+        Redes Conexiones e Ingeniería
+      </h2>
+    </div>
+
+       <!-- PANEL 2 -->
+   <div class="panel bg-amber-300 h-screen items-center justify-center">
+    <h2 class="text-xl sm:text-2xl font-medium font-body mt-10 text-center">
+      Redes Conexiones e Ingeniería
+    </h2>
+    <img
+      src="rci_project.svg"
+      alt="BR Solution"
+      class="hidden lg:flex"
+    />
+    <img
+      src="/939shots.svg"
+      alt="BR Solution"
+      class="lg:hidden flex w-[800px]"
+    />
+    <h2 class="text-xl sm:text-2xl font-medium font-body mt-10 text-center">
+      Redes Conexiones e Ingeniería
+    </h2>
+  </div>
+
+ 
+
+ 
+  </div>
+</section>
+
+  
+
+  <script>
+    import { gsap } from 'gsap';
+    
+   document.addEventListener('astro:page-load', () => {
+
+       
+let sections = gsap.utils.toArray(".panel");
+
+gsap.to(sections, {
+ xPercent: -100 * (sections.length - 1),
+ ease: "none",
+ scrollTrigger: {
+   trigger: "#sectionPin",
+   pin: true,
+   scrub: 1,
+   snap: {
+     snapTo: 1 / (sections.length - 1), // "labels", // snap to the closest label in the timeline
+     duration: {min: 0.1, max: 0.2}, // the snap animation should be at least 0.2 seconds, but no more than 0.4 seconds (determined by velocity)
+     // delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
+     ease: "power1.inOut" // the ease of the snap animation ("power3" by default)
+   },
+   // snap: 1 / (sections.length - 1),
+   // base vertical scrolling on how wide the container is so it feels more natural.
+   // @ts-ignore
+   end: () => "+=" + document.querySelector("#sectionPin").offsetWidth
+ }
+});
+
+   })
+
+ </script>
