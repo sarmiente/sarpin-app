@@ -3,6 +3,9 @@ import Logo from "../../assets/SARPIN_AGENCY.svg";
 import Insta from "../../icons/instagram.svg";
 import EnvelopSVG from "../../icons/envelop.svg"
 import WhatsappSVG from "../../icons/whatsapp.svg"
+
+
+
 const links = [
   {
     url: "/",
@@ -27,12 +30,36 @@ const links = [
 ];
 
 const yearDate = new Date().getFullYear();
+
+const blogs = [
+  {
+    img: 'https://images.unsplash.com/photo-1664574654529-b60630f33fdb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=560&q=80',
+    link: '',
+    category: 'Categoria',
+    title: 'Titulo',
+    sub: 'Subtitulo'
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1664574654529-b60630f33fdb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=560&q=80',
+    link: '',
+    category: 'Categoria',
+    title: 'Titulo 2',
+    sub: 'Subtitulo'
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1664574654529-b60630f33fdb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=560&q=80',
+    link: '',
+    category: 'Categoria',
+    title: 'Titulo 3',
+    sub: 'Subtitulo'
+  }
+]
 ---
 
 <nav
   x-data="{ mobileMenuIsOpen: false }"
   x-on:click.away="mobileMenuIsOpen = false"
-  class="grid grid-cols-2 sm:grid-cols-3 p-2 w-full  z-20 bg-white" 
+  class="grid grid-cols-2 sm:grid-cols-3 p-2 w-full  z-20 bg-white fixed" 
 >
   <!-- Icono lateral izquierdo -->
   <div class="hidden sm:flex items-center gap-2 text-sm">
@@ -45,9 +72,9 @@ const yearDate = new Date().getFullYear();
     </div>
     <div class="items-center gap-1 hidden lg:flex">
       <WhatsappSVG class="size-4 " />
-    <a target="_blank" href="https://api.whatsapp.com/send/?phone=573332319305" 
+    <a target="_blank" href="https://api.whatsapp.com/send/?phone=573053412415&text&type=phone_number&app_absent=0" 
     class="hover:cursor-pointer font-body ">
-      +57 333 321 9305
+      +57 305 341 2415
     </a>
     </div>
   </div>
@@ -99,7 +126,7 @@ const yearDate = new Date().getFullYear();
     x-transition:leave-start="translate-x-0"
     x-transition:leave-end="-translate-x-full"
     id="mobileMenu"
-    class="fixed inset-0 overflow-y-auto h-screen w-screen z-10 bg-main flex flex-col"
+    class="fixed inset-0 overflow-y-auto h-screen w-screen z-10 bg-gradient-to-r from-sky-800 to-slate-800 flex flex-col"
   >
     <!-- Contenedor principal con flex para distribuir contenido -->
     <div class="flex flex-col h-full">
@@ -146,56 +173,59 @@ const yearDate = new Date().getFullYear();
             ))
           }
         </ul>
+<!--
+ <div class="p-4 xl:p-6 ">
 
-        <div class="p-4 xl:p-6">
-        
-          <!-- Card Blog -->
-        <div class="w-full px-4 py-2 sm:px-10 lg:py-14 mx-auto bg-white rounded-xl">
-          <!-- Grid -->
-          <div class="grid lg:grid-cols-1 gap-6">
-            <!-- Card -->
-            <a class="group sm:flex rounded-xl focus:outline-hidden bg-light hover:scale-105 transition" href="#">
-              <div
-                class="shrink-0 relative rounded-xl overflow-hidden h-50 sm:w-62.5 sm:h-87.5 w-full"
-              >
-                <img
-                  class="size-full absolute top-0 start-0 object-cover"
-                  src="https://images.unsplash.com/photo-1664574654529-b60630f33fdb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=560&q=80"
-                  alt="Blog Image"
-                />
+  <div class="swiper w-full mx-auto bg-white rounded-xl">
+    
+  
+    <div class="swiper-wrapper ">
+      {blogs.map((item) => (
+        <div class="swiper-slide p-5 md:p-10">
+          <a
+            class="group flex flex-col sm:flex-row rounded-xl overflow-hidden bg-light hover:scale-105 transition-transform duration-300"
+            href={item.link || "#"}
+          >
+            <div class="relative sm:w-64 h-56 sm:h-80 overflow-hidden rounded-xl">
+              <img
+                src={item.img}
+                alt={item.title || "Blog image"}
+                class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
+              />
+            </div>
+
+            <div class="flex flex-col justify-between p-4 sm:p-6 grow">
+              <div>
+                <p class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-md text-xs font-medium bg-dark text-white">
+                  {item.category}
+                </p>
+                <h3 class="mt-3 text-lg md:text-2xl font-semibold text-gray-800 group-hover:text-second transition-colors">
+                  {item.title}
+                </h3>
+                <p class="mt-2 text-gray-500">
+                  {item.sub}
+                </p>
               </div>
-
-              <div class="grow">
-                <div class="p-4 flex flex-col h-full sm:p-6">
-                  <div class="mb-3">
-                    <p
-                      class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-md text-xs font-medium bg-dark text-white"
-                    >
-                      Categoria
-                    </p>
-                  </div>
-                  <h3
-                    class="text-lg md:text-2xl font-semibold text-gray-800 group-hover:second group-focus:text-warning"
-                  >
-                    Preline becomes an official Instagram Marketing Partner
-                  </h3>
-                  <p class="mt-2 text-gray-500">
-                    Great news we're eager to share.
-                  </p>
-
-                  
-                </div>
-              </div>
-            </a>
-            <!-- End Card -->
-          </div>      
-         <div class="mt-5">
-           <button class="bg-dark hover:bg-second p-2 rounded-xl">
-            <a class="text-white font-heading text-base" href="">Ver todos los articulos</a>  
-          </button>  
-         </div>
+            </div>
+          </a>
         </div>
-        </div>
+      ))}
+      
+    </div>
+     
+  </div>
+
+
+  <div class="mt-8 text-center">
+    <a
+      href="/blog"
+      class="inline-block bg-dark hover:bg-second text-white hover:text-black font-heading text-base px-6 py-3 rounded-xl transition-colors"
+    >
+      Ver todos los artículos
+    </a>
+  </div>
+</div>
+ -->
 
       </div>
 
@@ -238,9 +268,7 @@ const yearDate = new Date().getFullYear();
                 </a>
               </li>
       
-              <li>
-                <a href="#" class="transition hover:text-second hover:underline"> Cookies </a>
-              </li>
+              
             </ul>
           </div>
         </div>
@@ -250,3 +278,22 @@ const yearDate = new Date().getFullYear();
     
   </div>
 </nav>
+
+
+<script>
+  import Swiper from 'swiper';
+  import 'swiper/css';
+
+  document.addEventListener("astro:page-load", () => {
+      const swiper = new Swiper(".swiper", {
+        
+      direction: "horizontal",
+      loop: true,
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+      },
+     
+      });
+    });
+</script>

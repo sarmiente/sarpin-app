@@ -1,0 +1,57 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../../layouts/Layout.astro";
+
+const posts = await getCollection("blog");
+
+// Crear lista de categorías con nombre bonito y conteo
+const categories = Array.from(
+  posts.reduce((map, post) => {
+    const slug = post.data.category;
+    const name = post.data.categoryName || slug;
+    if (!map.has(slug)) {
+      map.set(slug, {
+        slug,
+        name,
+        count: 1
+      });
+    } else {
+      map.get(slug).count++;
+    }
+    return map;
+  }, new Map()).values()
+);
+---
+
+
+<Layout title="Categorías del blog">
+  <section class="p-5">
+    <div class="pt-20 text-center">
+      <h1 class="text-3xl font-bold mb-6 font-heading">
+        Categorías ({categories.length})
+      </h1>
+
+      <p class="text-center mb-10 font-body">
+        Explora los artículos por categoría
+      </p>
+    </div>
+
+    <div class="max-w-xl mx-auto p-5">
+      <ul class="space-y-4">
+  {categories.map((cat) => (
+    <li>
+      <a
+        href={`/blog/categorias/${cat.slug}`}
+        class="block font-body h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600"
+      >
+        <p class="mt-1 font-body font-medium capitalize text-main hover:underline">
+          {cat.name} ({cat.count})
+        </p>
+      </a>
+    </li>
+  ))}
+</ul>
+
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,67 @@
+---
+const cards = [
+  {
+    title: "Mucho más que simples visuales.",
+    text: "Creamos experiencias que conectan, enamoran y convierten visitantes en clientes fieles.",
+    highlight: false,
+  },
+  {
+    title: "Tu marca es más que un logo.",
+    text: "Diseñamos identidades que cuentan historias y dejan huella en cada interacción.",
+    highlight: false,
+  },
+  {
+    title: "Una marca no es solo un nombre.",
+    text: "Es un movimiento. Déjanos encenderlo y llevarlo al siguiente nivel.",
+    highlight: true,
+  },
+];
+
+---
+
+<section class="w-full bg-black py-24">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-3 gap-6">
+
+      {cards.map((card) => (
+        <div
+          class={`relative rounded-xl p-6 flex flex-col justify-between h-52
+            ${
+              card.highlight
+                ? "bg-main text-white"
+                : "bg-neutral-500 text-gray-100"
+            }`}
+        >
+          <div>
+            <h3 class="text-2xl font-heading font-medium mb-3">{card.title}</h3>
+            <p class="text-sm font-body opacity-80 leading-relaxed">{card.text}</p>
+          </div>
+
+          {card.highlight && (
+            <a
+              href="#"
+              class="absolute bottom-4 right-4 w-10 h-10 flex items-center justify-center 
+                rounded-full border border-white/40 hover:bg-white/20 transition"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M7 17l9-9m0 0H7m9 0v9"
+                />
+              </svg>
+            </a>
+          )}
+        </div>
+      ))}
+
+    </div>
+  </div>
+</section>

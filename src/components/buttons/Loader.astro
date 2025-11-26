@@ -1,0 +1,29 @@
+---
+
+---
+
+
+<div id="loader"
+  class="fixed inset-0 flex items-center justify-center bg-white z-[9999] transition-opacity duration-300">
+  <div class="flex gap-2">
+    <span class="size-3 animate-bounce rounded-full bg-indigo-600"></span>
+    <span class="size-3 animate-bounce rounded-full bg-indigo-600 [animation-delay:0.2s]"></span>
+    <span class="size-3 animate-bounce rounded-full bg-indigo-600 [animation-delay:0.4s]"></span>
+  </div>
+</div>
+
+
+<style>
+  #loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+</style>
+
+
+<script is:inline>
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+    loader.classList.add("hidden");
+  });
+</script>

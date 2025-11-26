@@ -1,0 +1,156 @@
+---
+import CookieIcon from "../../icons/cookie.svg";
+---
+
+<!-- banner - start -->
+<div
+  id="cookie-consent"
+  class="z-10 fixed bottom-4 left-4 right-4 md:left-8 md:right-auto md:max-w-md bg-white/90 p-6 rounded-lg shadow-lg border opacity-0 transition-opacity duration-500 hidden"
+>
+  <div class="flex items-start gap-4">
+    <CookieIcon width={100} height={100} />
+    <div class="flex-1 space-y-3">
+      <div class="flex items-start justify-between gap-4">
+        <h3 class="font-semibold leading-none tracking-tight font-heading text-lg md:text-xl">
+          Configuración de Cookies
+        </h3>
+        <button
+          class="h-6 bg-light border w-6 inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+          data-action="decline"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-4 w-4"
+          >
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <p class="text-xs md:text-sm  font-body">
+        Utilizamos cookies para optimizar tu experiencia de navegación, analizar el tráfico del sitio y ofrecerte contenido relevante. Elige tu preferencia a continuación.
+
+      </p>
+      <div class="flex flex-col sm:flex-row gap-2">
+        <button
+          class="flex-1 text-white inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors bg-main text-primary-foreground h-10 px-4 py-2 hover:bg-main/90"
+          data-action="accept"
+        >
+          Aceptar
+        </button>
+        <button
+          class="flex-1 inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input bg-white hover:bg-red-400 hover:text-accent-foreground h-10 px-4 py-2"
+          data-action="decline"
+        >
+          Declinar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- banner - end -->
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () =>
+    document.addEventListener("astro:page-load", () => {
+      (function () {
+        const cookieConsent = document.getElementById("cookie-consent");
+
+        function getCookie(name) {
+          return document.cookie
+            .split("; ")
+            .find((row) => row.startsWith(name + "="))
+            ?.split("=")[1];
+        }
+
+        function setCookie(name, value, days) {
+          let expires = "";
+          if (days) {
+            let date = new Date();
+            date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+            expires = "; expires=" + date.toUTCString();
+          }
+          document.cookie = name + "=" + value + "; path=/" + expires;
+        }
+
+        function loadGtag() {
+          if (!window.dataLayer) {
+            window.dataLayer = [];
+          }
+          function gtag() {
+            window.dataLayer.push(arguments);
+          }
+
+          gtag("js", new Date());
+          gtag("config", "");
+
+          let script = document.createElement("script");
+          script.async = true;
+          script.src =
+            "https://www.googletagmanager.com/gtag/js?id=G-";
+          document.head.appendChild(script);
+        }
+
+        function handleAction(action) {
+          if (action === "accept") {
+            setCookie("cookie-consent", "accepted", 365);
+            localStorage.setItem("consentGranted", "true");
+            loadGtag();
+
+            gtag("consent", "update", {
+              ad_user_data: "granted",
+              ad_personalization: "granted",
+              ad_storage: "granted",
+              analytics_storage: "granted",
+            });
+            console.log("Cookies accepted");
+          } else {
+            setCookie("cookie-consent", "declined", 365);
+            gtag("consent", "update", {
+              ad_user_data: "denied",
+              ad_personalization: "denied",
+              ad_storage: "denied",
+              analytics_storage: "denied",
+            });
+          }
+
+          cookieConsent.style.opacity = "0";
+          setTimeout(() => {
+            cookieConsent.remove();
+          }, 500);
+        }
+
+        if (!getCookie("cookie-consent")) {
+          cookieConsent.classList.remove("hidden");
+          setTimeout(() => {
+            cookieConsent.style.opacity = "1";
+          }, 100);
+        }
+
+        document.querySelectorAll("button[data-action]").forEach((button) => {
+          button.addEventListener("click", (e) => {
+            handleAction(e.target.dataset.action);
+          });
+        });
+
+        if (getCookie("cookie-consent") === "accepted") {
+          loadGtag();
+          gtag("consent", "update", {
+            ad_user_data: "granted",
+            ad_personalization: "granted",
+            ad_storage: "granted",
+            analytics_storage: "granted",
+          });
+        }
+      })();
+    })
+  );
+</script>

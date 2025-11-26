@@ -1,0 +1,20 @@
+---
+import HeroService from "@/sections//HeroService.astro";
+import Layout from "../../layouts/Layout.astro";
+import ServiceDetails from "@/sections//ServiceDetails.astro";
+import ServiceHighlights from "@/sections//ServiceHighlights.astro";
+
+
+---
+
+<Layout title="Diseño y Desarrollo Web">
+    <HeroService
+        title="Diseño y Desarrollo Web Profesional"
+        subtitle="Creamos sitios web atractivos y funcionales que impulsan tu presencia en línea."
+        description="Nuestro equipo de expertos en desarrollo web utiliza las últimas tecnologías para construir sitios web personalizados que se adaptan a tus necesidades comerciales. Desde el diseño hasta la implementación, nos aseguramos de que tu sitio web no solo sea visualmente atractivo, sino también fácil de navegar y optimizado para motores de búsqueda."
+        image="/public/serivice_web.jpeg"
+    />
+    <ServiceDetails />
+    
+    <ServiceHighlights />
+</Layout>

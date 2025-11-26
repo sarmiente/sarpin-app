@@ -1,0 +1,64 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+
+  // Extraer categorías únicas
+  const categories = [...new Set(posts.map((post) => post.data.category))];
+
+  return categories.map((category) => ({
+    params: { category },
+  }));
+}
+
+const posts = await getCollection("blog");
+
+// Categoría actual desde la URL
+const currentCategory = Astro.params.category ?? "";
+
+const categoryName = posts.find(
+  (post) =>
+    String(post.data.category ?? "").toLowerCase() ===
+    String(currentCategory ?? "").toLowerCase()
+)?.data.categoryName;
+
+// Filtrar posts por categoría
+const filtered = posts.filter(
+  (post) =>
+    String(post.data.category ?? "").toLowerCase() ===
+    String(currentCategory ?? "").toLowerCase()
+);
+
+export const prerender = true;
+---
+
+<Layout title={`Categoría: ${categoryName}`}>
+  <section>
+    <div class="pt-20 text-center">
+      <h1 class="text-3xl font-bold mb-6 font-heading">
+        Articulos en la Categoría: {categoryName}
+      </h1>
+    </div>
+    <p class="text-center mb-10">
+      {filtered.length} {filtered.length === 1 ? "artículo" : "artículos"} encontrados
+    </p>
+
+    <div class="max-w-4xl mx-auto p-5">
+      {filtered.length === 0 ? (
+        <p class="text-center font-body">No hay artículos en esta categoría.</p>
+      ) : (
+        <ul class="space-y-6">
+          {filtered.map((post) => (
+            <li>
+              <a href={`/blog/${post.id}/`} class="text-lg font-body text-main hover:underline">
+                {post.data.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  </section>
+</Layout>

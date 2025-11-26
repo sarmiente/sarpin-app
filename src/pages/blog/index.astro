@@ -1,0 +1,88 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../../site.config";
+import { getCollection } from "astro:content";
+import Card from "@/components/Card.astro";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+// Crear lista de categorías con nombre bonito y conteo
+const categories = Array.from(
+  posts.reduce((map, post) => {
+    const slug = post.data.category;
+    const name = post.data.categoryName || slug;
+    if (!map.has(slug)) {
+      map.set(slug, {
+        slug,
+        name,
+        count: 1
+      });
+    } else {
+      map.get(slug).count++;
+    }
+    return map;
+  }, new Map()).values()
+);
+
+
+---
+
+<Layout title="Noticias" description={SITE_DESCRIPTION}>
+  <main class="bg-gradient-to-br from-main to-white">
+    <section class="pt-24 pb-16">
+      <div class="p-5 md:p-10">
+        <h1
+          class="text-3xl font-medium tracking-tight text-center text-white font-heading sm:text-4xl py-5"
+        >
+          Últimos Artículos
+        </h1>
+        <p
+          class="text-2xl text-center font-body font-light tracking-tight text-white"
+        >
+          Explora nuestros ultimos articulos y mantente actualizado con las
+          novedades.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8 p-5 md:p-10">
+        <div class="p-5 rounded bg-white lg:col-span-2">
+          <ul
+            class="grid gap-8 max-w-6xl mx-auto px-4 sm:grid-cols-2 lg:grid-cols-3"
+          >
+            {
+              posts.map((post) => (
+                <Card
+                  title={post.data.title}
+                  description={
+                    post.data.description || "Descripción del artículo..."
+                  }
+                  author={post.data.author || "Autor Desconocido"}
+                  category={post.data.categoryName || "Sin categoría"}
+                  date={post.data.pubDate}
+                  image={post.data.heroImage ?? ""}
+                  href={`/blog/${post.id}/`}
+                />
+              ))
+            }
+          </ul>
+        </div>
+        <div class="hidden lg:block h-fit rounded bg-white p-5 sticky top-20">
+          <h2 class="text-xl font-semibold mb-4 font-heading">Categorías</h2>
+          <ul class="space-y-2 font-body">
+            {categories.map((cat) => (
+              <li>
+                <a
+                  href={`/blog/categorias/${cat.slug}`}
+                  class="text-main hover:underline"
+                >
+                  {cat.name} ({cat.count})
+                </a>
+              </li>
+            ))}
+          </ul>
+      </div>
+    </section>
+  </main>
+</Layout>

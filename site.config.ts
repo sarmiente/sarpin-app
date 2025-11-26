@@ -1,4 +1,4 @@
-export const siteUrl = "https://sarpin.agency/";
-export const siteTitle = "Sarpin Agency"
-export const siteDescription = "Mejora la visibilidad de tu negocio con un sitio web que capture la esencia de tu negocio.";
+export const SITE_URL = "https://sarpinagency.com";
+export const SITE_TITLE = "Sarpin Agency - Agencia de desarrollo y posicionamiento web en Colombia."
+export const SITE_DESCRIPTION = "Diseñamos sitios web rápidos, modernos y optimizados para SEO. Mejora tu presencia online con soluciones profesionales a medida.";
 

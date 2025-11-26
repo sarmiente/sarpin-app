@@ -5,6 +5,12 @@
     "dist"
 ],
 "compilerOptions": {
+     "baseUrl": ".",
+    "strictNullChecks": true,
+    "paths": {
+      "@/sections/*": ["./src/components/sections*"],
+      "@/*": ["./src/*"],
+    },
     "types": [
         "./worker-configuration.d.ts",
         "node"

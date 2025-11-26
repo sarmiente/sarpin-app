@@ -4,6 +4,8 @@ import "../../src/styles/global.css";
 import Navbar from "../components/ui/Navbar.astro";
 import Footer from "../components/ui/Footer.astro";
 import WhatsappButton from "../components/buttons/WhatsappButton.astro";
+import Cookies from "../components/cookies/Cookies.astro";
+
 
 
 const { title, description } = Astro.props;
@@ -16,16 +18,19 @@ const { title, description } = Astro.props;
   </head>
   <body>
     <Navbar />
+
     <slot />
     
     <WhatsappButton />
+    <Cookies />
     <Footer />
+
   </body>
 </html>
 
 <script>
   import Alpine from 'alpinejs'
-    
+   
   document.addEventListener('DOMContentLoaded', () => {
     Alpine.start()
   })
@@ -47,5 +52,4 @@ const { title, description } = Astro.props;
   [x-cloak] {
     display: none !important;
   }
-
 </style>
