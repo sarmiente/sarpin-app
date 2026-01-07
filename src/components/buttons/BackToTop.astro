@@ -1,0 +1,68 @@
+---
+/**
+ * BackToTop Component
+ * Aparece al hacer scroll y vuelve al inicio suavemente
+ */
+---
+
+<button
+  id="backToTop"
+  aria-label="Volver arriba"
+  class="back-to-top bg-mid hover:bg-dark border-main hover:border-dark flex items-center justify-center shadow-lg"
+>
+  ↑
+</button>
+
+<style>
+  .back-to-top {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    z-index: 50;
+
+    width: 44px;
+    height: 44px;
+    border-radius: 9999px;
+
+    
+    color: #fff;
+    font-size: 1.25rem;
+
+    border: none;
+    cursor: pointer;
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+ 
+</style>
+
+<script is:inline>
+document.addEventListener('DOMContentLoaded', () => {
+  const backToTopButton = document.getElementById('backToTop');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTopButton.classList.add('visible');
+    } else {
+      backToTopButton.classList.remove('visible');
+    }
+  });
+
+  backToTopButton.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  });
+});
+</script>

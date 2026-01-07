@@ -1,23 +1,107 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content';
-import BlogPost from '../../layouts/BlogPost.astro';
-import { render } from 'astro:content';
+import { type CollectionEntry, getCollection } from "astro:content";
+import BlogPost from "../../layouts/BlogPost.astro";
+import { render } from "astro:content";
+import Toc from "../../components/ui/Toc.astro";
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
-	return posts.map((post) => ({
-		params: { slug: post.id },
-		props: post,	
-	}));
+  const posts = await getCollection("blog", (post) => !post.data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: post,
+  }));
 }
-type Props = CollectionEntry<'blog'>;
 
+type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
-const { Content } = await render(post);
+const date = {
+  publishDate: new Date(post.data.pubDate),
+  updatedDate: post.data.updatedDate ? new Date(post.data.updatedDate) : null,
+};
+const { Content, headings } = await render(post);
 export const prerender = true;
+const filtered = headings.filter((h) => h.depth <= 2);
 ---
 
-<BlogPost  {...post.data}>
-	<Content />
+<BlogPost {...post.data}>
+  <!-- Reading progress bar -->
+  <div
+    id="reading-progress"
+    class="reading-progress z-50 fixed top-0 left-0 w-full h-1 origin-left bg-main"
+    style="transform: scaleX(0);"
+  >
+  </div>
+
+  <!-- Metadata -->
+  <div class="article-meta text-sm text-dark">
+    
+    <time datetime={date.publishDate.toISOString()}>
+      {
+        date.publishDate.toLocaleDateString("es-CO", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })
+      }
+    </time>
+    {
+      post.data.read && (
+        <>
+          <span class="article-meta-divider" />
+          ⏱️
+          <span>{post.data.read} min de lectura</span>
+        </>
+      )
+    }
+  </div>
+
+  <!-- Content area -->
+  <div class="relative flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-16 py-10">
+    <!-- Left TOC - Fixed on desktop -->
+    <aside class="relative hidden lg:block lg:w-40 xl:w-50 flex-shrink-0">
+      <div class="toc-sticky-wrapper">
+        <Toc headings={filtered} />
+      </div>
+    </aside>
+
+    <!-- Article content -->
+    <div class="relative flex-1 min-w-0 w-full lg:max-w-none">
+      <article class="article-wrapper">
+        <div class="article-content">
+          <Content />
+        </div>
+      </article>
+    </div>
+  </div>
 </BlogPost>
+
+<style>
+  .toc-sticky-wrapper {
+    position: sticky;
+    top: 8rem;
+  }
+</style>
+
+<script>
+  // Reading progress bar
+  function updateReadingProgress() {
+    const progressBar = document.getElementById("reading-progress");
+    if (!progressBar) return;
+
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const scrollTop = window.scrollY;
+    const scrollPercentage =
+      (scrollTop / (documentHeight - windowHeight)) * 100;
+
+    progressBar.style.transform = `scaleX(${Math.min(scrollPercentage / 100, 1)})`;
+  }
+
+  // Event listener
+  window.addEventListener("scroll", updateReadingProgress, { passive: true });
+
+  // Initialize
+  document.addEventListener("DOMContentLoaded", updateReadingProgress);
+  updateReadingProgress();
+</script>

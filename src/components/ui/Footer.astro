@@ -26,9 +26,10 @@ const legal = FooterLinks[1].items;
 
 <footer class="space-y-5">
   <div class="grid grid-cols-1 md:grid-cols-2 bg-second/90 py-10">
-
     <!-- Left title -->
-    <div class="m-auto flex flex-col items-center text-center md:text-left md:gap-2">
+    <div
+      class="m-auto flex flex-col items-center text-center md:text-left md:gap-2"
+    >
       <h1
         class="text-5xl md:text-5xl lg:text-8xl font-body"
         words-slide-from-left
@@ -40,137 +41,114 @@ const legal = FooterLinks[1].items;
     </div>
 
     <!-- Right form -->
-    <div class="m-auto flex flex-col items-center md:flex-row md:text-left md:gap-2 reveal font-body">
-
-      <form
-        id="form-brevo"
-        class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-3xl mx-auto p-4 sm:p-6">
-
-        <!-- Name -->
-        <div class="flex flex-col border-b">
-          <input
-            type="text"
-            id="nombre"
-            name="NOMBRE"
-            placeholder="Nombre Completo*"
-            class="form-input w-full"
-            required
-          />
-        </div>
-
-        <!-- Email -->
-        <div class="flex flex-col border-b">
-          <input
-            type="email"
+    <div
+      class="m-auto flex flex-col items-center md:flex-row md:text-left md:gap-2 reveal font-body p-5"
+    >
+      <form id="form-brevo" class="grid gap-4 font-body">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="space-y-2">
+            <label
+              for="nombre"
+              class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              >Nombre</label
+            ><input
+              id="nombre"
+              name="NOMBRE"
+              required
+              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              placeholder="Tu nombre"
+            />
+          </div><div class="space-y-2">
+            <label
+              for="apellido"
+              class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              >Apellido</label
+            ><input
+              id="apellidos"
+              name="APELLIDOS"
+              required
+              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              placeholder="Apellido"
+            />
+          </div>
+        </div><div class="space-y-2">
+          <label
+            for="email"
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >Correo electrónico</label
+          ><input
             id="email"
             name="EMAIL"
-            placeholder="Correo electrónico *"
-            class="form-input w-full"
             required
+            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            placeholder="tucorreo@ejemplo.com"
+            type="email"
           />
         </div>
-
-        <!-- WhatsApp -->
-<div class="flex flex-col border-b">
-  <input
-    type="text"
-    id="whatsapp"
-    name="WHATSAPP"
-    placeholder="WhatsApp (opcional)"
-    class="form-input w-full"
-  />
-</div>
-
-
-        <!-- Servicio -->
-        <div class="flex flex-col md:col-span-2 border-b">
+        <div class="space-y-2">
+          <label
+            for="whatsapp"
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          >
+            Teléfono
+          </label>
+          <div class="flex">
+            <div
+              class="flex items-center h-10 p-3 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md text-sm select-none"
+            >
+              +57
+            </div>
+            <input
+              id="whatsapp"
+              name="WHATSAPP"
+              required
+              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              type="tel"
+            />
+          </div>
+        </div>
+        <div class="space-y-2">
+          <label
+            for="servicio"
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >Servicio de interés</label
+          >
           <select
             id="servicio"
             name="SERVICIO"
             required
-            class="form-input w-full text-dark"
+            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            ><option value="">Selecciona un servicio</option><option
+              value="video">Videovigilancia</option
+            ><option value="alarm">Sistemas de alarma</option><option
+              value="access">Control de Acceso</option
+            ><option value="other">Otro</option></select
           >
-            <option value="">Selecciona un tema *</option>
-            <option value="Desarrollo de Paginas Web">Desarrollo Páginas Web</option>
-            <option value="Marketing Digital SEO">Marketing Digital / SEO</option>
-            <option value="Diseño de Marca">Diseño de Marca</option>
-          </select>
-        </div>
-
-        <!-- Mensaje -->
-        <div class="flex flex-col md:col-span-2 border-b">
-          <textarea
+        </div><div class="space-y-2">
+          <label
+            for="mensaje"
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >Mensaje</label
+          ><textarea
             id="mensaje"
             name="MENSAJE"
-            rows="4"
-            placeholder="¿Cómo podemos ayudarte? Déjanos tu mensaje *"
-            class="form-input w-full"
-            required
+            class="flex min-h-[100px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            placeholder="Cuentanos acerca de tus necesidades en seguridad..."
           ></textarea>
         </div>
-
-        <!-- User Source -->
-        <div class="flex flex-col md:col-span-2">
-          <label for="source" class="form-label mb-2">¿Cómo escuchaste acerca de nosotros?</label>
-          <div class="flex flex-col gap-4">
-
-            <!-- Google -->
-            <label class="flex items-center gap-2">
-              <input
-                value="Google" type="radio" name="USER_SOURCE"
-                class="form-radio accent-main"
-                required
-              />
-              <span>Google</span>
-            </label>
-
-            <!-- Redes Sociales -->
-            <label class="flex items-center gap-2">
-              <input
-                value="Redes Sociales" type="radio" name="USER_SOURCE"
-                class="form-radio accent-main"
-                required
-              />
-              <span>Redes Sociales</span>
-            </label>
-
-            <!-- Checkbox -->
-            <div class="form-check flex space-x-2">
-              <input
-                value="Agreed"
-                type="checkbox"
-                name="Agreed Privacy"
-                id="privacy-policy"
-                class="accent-main"
-                required
-              />
-              <label for="privacy-policy" class="text-xs">
-                Acepto los
-                <a target="_blank" class="hover:underline hover:text-info" href="/terminos-condiciones">términos y condiciones</a> y la
-                <a target="_blank" class="hover:underline hover:text-info" href="/politica-privacidad">política de privacidad</a>.
-              </label>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Submit -->
-        <div class="flex justify-end md:col-span-2">
-          <button
-            type="submit"
-            class="bg-main px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition"
-          >
-            Enviar mensaje
-          </button>
-        </div>
-
+        <button
+          class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-main text-white hover:bg-dark h-11 rounded-md px-8"
+          type="submit">Enviar solicitud</button
+        >
       </form>
     </div>
   </div>
 
   <!-- Footer Links -->
   <div class="grid grid-cols-1 md:grid-cols-2">
-    <div class="m-auto flex flex-col items-center text-center md:flex-row md:text-left md:gap-2">
+    <div
+      class="m-auto flex flex-col items-center text-center md:flex-row md:text-left md:gap-2"
+    >
       <Favicon class="size-10" />
       <p class="text-xl font-body">
         Transformamos su visión empresarial <br />
@@ -182,26 +160,32 @@ const legal = FooterLinks[1].items;
       <div>
         <p class="font-heading uppercase text-lg">Links</p>
         <ul>
-          {links.map((item) => (
-            <li class="group">
-              <a href={item.href} class="font-body text-md hover:text-main">
-                {item.text}
-              </a>
-              <div class="h-[0.2px] ml-auto duration-300 origin-left bg-main scale-x-20 group-hover:scale-x-100" />
-            </li>
-          ))}
+          {
+            links.map((item) => (
+              <li class="group">
+                <a href={item.href} class="font-body text-md hover:text-main">
+                  {item.text}
+                </a>
+                <div class="h-[0.2px] ml-auto duration-300 origin-left bg-main scale-x-20 group-hover:scale-x-100" />
+              </li>
+            ))
+          }
         </ul>
       </div>
 
       <div>
         <p class="font-heading uppercase text-lg">Legal</p>
         <ul>
-          {legal.map((item) => (
-            <li class="group">
-              <a href={item.href} class="font-body hover:text-main">{item.text}</a>
-              <div class="h-[0.2px] ml-auto duration-300 origin-left bg-main scale-x-20 group-hover:scale-x-100" />
-            </li>
-          ))}
+          {
+            legal.map((item) => (
+              <li class="group">
+                <a href={item.href} class="font-body hover:text-main">
+                  {item.text}
+                </a>
+                <div class="h-[0.2px] ml-auto duration-300 origin-left bg-main scale-x-20 group-hover:scale-x-100" />
+              </li>
+            ))
+          }
         </ul>
       </div>
     </div>
@@ -215,12 +199,16 @@ const legal = FooterLinks[1].items;
   </div>
 </footer>
 
-
-<dialog id="responseDialogSection" class="mx-auto rounded-xl p-6 shadow-lg my-auto">
-      <p id="responseMessageSection" class="font-body"></p>
-        <form method="dialog">
-          <button class="mt-4 px-4 py-2 rounded-lg bg-blue-600 text-white">Cerrar</button>
-        </form>
+<dialog
+  id="responseDialogSection"
+  class="mx-auto rounded-xl p-6 shadow-lg my-auto"
+>
+  <p id="responseMessageSection" class="font-body"></p>
+  <form method="dialog">
+    <button class="mt-4 px-4 py-2 rounded-lg bg-blue-600 text-white"
+      >Cerrar</button
+    >
+  </form>
 </dialog>
 
 <script is:inline>
@@ -233,17 +221,12 @@ const legal = FooterLinks[1].items;
       e.preventDefault();
 
       const data = new FormData(form);
-
       const payload = {
         nombre: data.get("NOMBRE"),
-        apellidos: data.get("APELLIDOS") || "",
+        apellidos: data.get("APELLIDOS"),
         email: data.get("EMAIL"),
-        whatsapp: data.get("WHATSAPP")
-          ? "+57" + data.get("WHATSAPP").replace(/\D/g, "")
-          : "",
-        servicio: data.get("SERVICIO"),
+        whatsapp: "+57" + data.get("WHATSAPP").replace(/\D/g, ""),
         mensaje: data.get("MENSAJE"),
-        userSource: data.get("USER_SOURCE") || "",
         listId: 8,
       };
 
@@ -252,33 +235,49 @@ const legal = FooterLinks[1].items;
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+            "Cache-Control":
+              "no-store, no-cache, must-revalidate, proxy-revalidate",
             Pragma: "no-cache",
           },
           body: JSON.stringify(payload),
         });
 
-        const result = await response.json();
-
-        // ✅ Better user feedback
         if (response.ok) {
-          messageEl.textContent =
+          // Enviar evento a Google Tag Manager
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: "brevo_form_success",
+            form_name: "form-brevo",
+            email: payload.email,
+          });
+
+          messageEl.innerText =
             "✅ ¡Gracias por tu mensaje! Nos comunicaremos a la mayor brevedad posible.";
-          messageEl.className = "font-body text-green-600";
+          dialog.showModal();
           form.reset();
         } else {
-          messageEl.textContent =
-            "⚠️ Hubo un error: " +
-            (result.error?.message || result.error || "Intenta de nuevo.");
-          messageEl.className = "font-body text-red-600";
-        }
+          // Evento de error
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: "brevo_form_error",
+            form_name: "form-brevo",
+            error_message: error.error?.message || "unknown",
+          });
 
-        dialog.showModal();
+          const error = await response.json();
+          messageEl.innerText =
+            "⚠️ Hubo un error: " + (error.error?.message || "Intenta de nuevo");
+          dialog.showModal();
+        }
       } catch (error) {
         console.error(error);
-        messageEl.textContent =
-          "❌ Error en la conexión con el servidor. Por favor, inténtalo más tarde.";
-        messageEl.className = "font-body text-red-600";
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "brevo_form_error",
+          form_name: "form-brevo",
+          error_message: error?.message,
+        });
+        messageEl.innerText = "❌ Error en la conexión con el servidor.";
         dialog.showModal();
       }
     });

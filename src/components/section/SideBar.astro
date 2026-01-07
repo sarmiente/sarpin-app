@@ -1,0 +1,129 @@
+---
+
+import { getCollection } from "astro:content";
+// Obtener posts ordenados
+const allPosts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+// Generar categorías (igual que en index.astro)
+const categories = Array.from(
+  allPosts.reduce((map, post) => {
+    const slug = post.data.category;
+    const name = post.data.categoryName || slug;
+    if (!map.has(slug)) {
+      map.set(slug, { slug, name, count: 1 });
+    } else {
+      map.get(slug).count++;
+    }
+    return map;
+  }, new Map()).values()
+);
+---
+
+
+<!-- ASIDE -->
+<aside class="w-full lg:w-90 mx-auto bg-white rounded p-5 h-fit sticky top-20 shadow-sm">
+  <div class="space-y-8">
+
+    <!-- Botón móvil -->
+    <div class="block lg:hidden mb-4">
+      <button
+        id="toggleSidebar"
+        class="w-full bg-main text-white px-4 py-2 rounded-md hover:bg-main/90 transition font-semibold"
+      >
+        Mostrar Panel
+      </button>
+    </div>
+
+    <div id="sidebarContent" class="hidden lg:block space-y-8">
+      <!-- Categorías -->
+      <div>
+        <h2 class="text-xl font-semibold mb-4 font-heading">Categorías</h2>
+        <ul class="space-y-2 font-body">
+          {categories.map((cat) => (
+            <li>
+              <a
+                href={`/blog/categorias/${cat.slug}`}
+                class="text-main hover:underline"
+              >
+                {cat.name} ({cat.count})
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Últimos Posts -->
+      <div>
+        <h2 class="text-xl font-semibold mb-4 font-heading">Últimos Posts</h2>
+        <ul class="space-y-2 font-body">
+          {allPosts.slice(0, 5).map((post) => (
+            <li>
+              <a
+                href={`/blog/${post.id}/`}
+                class="text-main hover:underline"
+              >
+                {post.data.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div>
+        <h2 class="text-xl font-semibold mb-4 font-heading">
+          Suscríbete al Newsletter
+        </h2>
+        <form
+          action="https://formspree.io/f/mayvlkgn"
+          method="POST"
+          class="flex flex-col space-y-4"
+        >
+          <input
+            type="email"
+            name="email"
+            placeholder="Tu correo electrónico"
+            required
+            class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-main"
+          />
+          <button
+            type="submit"
+            class="bg-main text-white px-4 py-2 rounded hover:bg-main/90 transition"
+          >
+            Suscribirse
+          </button>
+        </form>
+      </div>
+
+      <!-- Redes -->
+      <div>
+        <h2 class="text-xl font-semibold mb-4 font-heading">Síguenos en Redes</h2>
+        <ul class="space-y-2 font-body">
+          <li><a href="https://www.facebook.com/agency.sarpin/" target="_blank" class="text-main hover:underline">Facebook</a></li>
+          <li><a href="https://www.instagram.com/sarpin.agency/" target="_blank" class="text-main hover:underline">Instagram</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- SCRIPT para el toggle móvil -->
+<script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.addEventListener("astro:page-load", () => {
+        const toggleButton = document.getElementById("toggleSidebar");
+        const sidebarContent = document.getElementById("sidebarContent");
+
+        toggleButton.addEventListener("click", () => {
+          if (sidebarContent.classList.contains("hidden")) {
+            sidebarContent.classList.remove("hidden");
+          } else {
+            sidebarContent.classList.add("hidden");
+          }
+        });
+      });
+    });
+</script>

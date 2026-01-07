@@ -1,0 +1,61 @@
+---
+interface Step {
+  id: string;
+  title: string;
+  label: string;
+  text: string;
+  image: string;
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  steps: Step[];
+}
+
+const { title, subtitle, steps } = Astro.props;
+---
+
+<section class="w-full py-24">
+  <div class="max-w-4xl mx-auto px-6">
+
+    {title && (
+      <h2 class="text-center text-4xl font-heading md:text-4xl font-bold mb-16">
+        {title}
+        {subtitle && (
+          <>
+            <br />
+            {subtitle}
+          </>
+        )}
+      </h2>
+    )}
+
+    <div class="space-y-20">
+      {steps.map((step, i) => (
+        <div class="grid md:grid-cols-2 items-start gap-8">
+          
+          <!-- IMAGE -->
+          <div class={`flex justify-center ${i % 2 !== 0 ? "md:order-2" : ""}`}>
+            <img
+              src={step.image}
+              alt={step.title}
+              class="w-52 h-52 object-cover rounded-xl shadow-lg"
+            />
+          </div>
+
+          <!-- TEXT CONTENT -->
+          <div class={`space-y-3 ${i % 2 !== 0 ? "md:order-1" : ""}`}>
+            <p class="text-xs tracking-widest text-gray-400 font-body">{step.label}</p>
+            <h3 class="text-2xl font-semibold font-heading">{step.title}</h3>
+            <p class="text-gray-500 font-body leading-relaxed text-sm">
+              {step.text}
+            </p>
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

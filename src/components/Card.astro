@@ -9,12 +9,14 @@ interface Props {
     author?: string;
 }
 
+import { Image } from 'astro:assets';
+
 const { title, description, date, image, href, category, author } = Astro.props;
 ---
 
 <li class="bg-white rounded-lg overflow-hidden transition-shadow duration-300">
   <a href={href} class=" h-full">
-     <img class="object-cover object-center w-full h-64 rounded-lg" src={image} alt="">
+     <Image width={400} height={256} class="object-cover object-center w-full h-64 rounded-lg" src={image} alt="" />
 
                 <div class="">
                     <span class="text-blue-500 uppercase font-heading">{category}</span>

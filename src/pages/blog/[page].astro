@@ -29,7 +29,19 @@ const start = (currentPage - 1) * pageSize;
 const end = start + pageSize;
 const posts = allPosts.slice(start, end);
 
-
+// Generar categorías (igual que en index.astro)
+const categories = Array.from(
+  allPosts.reduce((map, post) => {
+    const slug = post.data.category;
+    const name = post.data.categoryName || slug;
+    if (!map.has(slug)) {
+      map.set(slug, { slug, name, count: 1 });
+    } else {
+      map.get(slug).count++;
+    }
+    return map;
+  }, new Map()).values()
+);
 ---
 
 <Layout title="Noticias" description={SITE_DESCRIPTION}>
@@ -51,9 +63,9 @@ const posts = allPosts.slice(start, end);
 
       <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8 p-5 md:p-10">
         <!-- Lista de Posts -->
-        <div class="p-3 rounded bg-white lg:col-span-2">
+        <div class="p-5 rounded bg-white lg:col-span-2">
           <ul
-            class="grid gap-8 max-w-6xl mx-auto  sm:grid-cols-2 lg:grid-cols-3"
+            class="grid gap-8 max-w-6xl mx-auto px-4 sm:grid-cols-2 lg:grid-cols-3"
           >
             {
               posts.map((post) => (
@@ -109,7 +121,7 @@ const posts = allPosts.slice(start, end);
         </div>
 
         <!-- SIDEBAR Categorías -->
-       <SideBar />
+        <SideBar />
       </div>
     </section>
   </main>

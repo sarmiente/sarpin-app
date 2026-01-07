@@ -4,17 +4,60 @@ import Layout from "../../layouts/Layout.astro";
 import ServiceDetails from "@/sections//ServiceDetails.astro";
 import ServiceHighlights from "@/sections//ServiceHighlights.astro";
 
-
+const steps = [
+  {
+    id: "01",
+    title: "Investigación y Análisis",
+    label: "Fase 01 — Investigación",
+    text: "Comenzamos con una investigación exhaustiva para comprender la esencia de tu marca, tus valores y tu público objetivo. Analizamos a la competencia y recopilamos información clave que nos ayudará a definir la dirección del manual de identidad corporativa.",
+    image: "/fases/manual/fase01.svg",
+  },
+  {
+    id: "02",
+    title: "Definición de Elementos Visuales",
+    label: "Fase 02 — Elementos Visuales",
+    text: "Desarrollamos los elementos visuales fundamentales de tu marca, incluyendo el logotipo, la paleta de colores, las tipografías y otros componentes gráficos. Nos aseguramos de que cada elemento refleje la personalidad y los valores de tu empresa.",
+    image: "/fases/manual/fase02.svg",
+  },
+  {
+    id: "03",
+    title: "Creación del Manual de Identidad",
+    label: "Fase 03 — Creación del Manual",
+    text: "Compilamos toda la información y los elementos visuales en un manual de identidad corporativa detallado. Este documento servirá como guía para el uso correcto de la marca en todos los materiales de comunicación, asegurando coherencia y profesionalismo.",
+    image: "/fases/manual/fase03.svg",
+  },
+  {
+    id: "04",
+    title: "Revisión y Ajustes",
+    label: "Fase 04 — Revisión",
+    text: "Presentamos el manual para tu revisión y feedback. Realizamos los ajustes necesarios para garantizar que el manual cumpla con tus expectativas y necesidades específicas.",
+    image: "/fases/manual/fase04.svg",
+  },
+  {
+    id: "05",
+    title: "Entrega Final y Soporte",
+    label: "Fase 05 — Entrega",
+    text: "Entregamos el manual de identidad corporativa en formatos accesibles y ofrecemos soporte adicional para ayudarte a implementar la guía en tus materiales de marketing y comunicación.",
+    image: "/fases/manual/fase05.svg",
+  },
+];
 ---
 
-<Layout title="Diseño y Desarrollo Web">
-    <HeroService
-        title="Diseño y Desarrollo Web Profesional"
-        subtitle="Creamos sitios web atractivos y funcionales que impulsan tu presencia en línea."
-        description="Nuestro equipo de expertos en desarrollo web utiliza las últimas tecnologías para construir sitios web personalizados que se adaptan a tus necesidades comerciales. Desde el diseño hasta la implementación, nos aseguramos de que tu sitio web no solo sea visualmente atractivo, sino también fácil de navegar y optimizado para motores de búsqueda."
-        image="/public/serivice_web.jpeg"
-    />
-    <ServiceDetails />
-    
-    <ServiceHighlights />
+<Layout
+  title="Diseño y Arquitectura de Marca"
+  description="Ofrecemos servicios profesionales de diseño y desarrollo de Manuales de Identidad Corporativa para fortalecer la imagen de tu marca."
+>
+  <HeroService
+    title="Diseño y desarrollo de Manuales de Identidad Corporativa"
+    subtitle="Define y fortalece la imagen de tu marca con un Manual de Identidad Corporativa profesionalmente diseñado."
+    description="Nuestro servicio de diseño y desarrollo de Manuales de Identidad Corporativa te ayudará a establecer una guía clara y coherente para la representación visual de tu marca. Desde la elección de colores y tipografías hasta el uso adecuado del logotipo, nuestro equipo de expertos trabajará contigo para crear un manual que refleje la esencia de tu empresa y garantice una comunicación efectiva en todos los puntos de contacto."
+    image="/brand_page.svg"
+  />
+  <ServiceDetails
+    title="Proceso de Diseño y Desarrollo de Manual de Identidad Corporativa"
+    subtitle="Descubre cómo creamos un manual que fortalece tu marca"
+    steps={steps}
+  />
+
+  <ServiceHighlights />
 </Layout>

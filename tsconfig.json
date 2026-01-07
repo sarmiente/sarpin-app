@@ -8,12 +8,14 @@
      "baseUrl": ".",
     "strictNullChecks": true,
     "paths": {
-      "@/sections/*": ["./src/components/sections*"],
+      "@/sections/*": ["./src/components/section*"],
+      "@/buttons/*": ["./src/components/button*"],
+      "@/ui/*": ["./src/components/ui*"],
       "@/*": ["./src/*"],
     },
     "types": [
         "./worker-configuration.d.ts",
         "node"
     ]
-}
-}
+}     
+} 

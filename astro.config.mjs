@@ -8,6 +8,7 @@ import remarkToc from "remark-toc";
 
 export default defineConfig({
   output: 'server',
+  site: 'https://sarpinagency.com',
   integrations: [
     mdx(),
     sitemap()

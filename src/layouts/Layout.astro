@@ -5,6 +5,7 @@ import Navbar from "../components/ui/Navbar.astro";
 import Footer from "../components/ui/Footer.astro";
 import WhatsappButton from "../components/buttons/WhatsappButton.astro";
 import Cookies from "../components/cookies/Cookies.astro";
+import BackToTop from "../components/buttons/BackToTop.astro";
 
 
 
@@ -17,10 +18,14 @@ const { title, description } = Astro.props;
     <Head title={title} description={description} />
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N5J3PRCD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <Navbar />
 
     <slot />
-    
+    <BackToTop />
     <WhatsappButton />
     <Cookies />
     <Footer />

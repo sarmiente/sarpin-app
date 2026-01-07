@@ -1,9 +1,46 @@
 ---
-import HeroService from "@/sections//HeroService.astro";
+import HeroService from "../../components/section/HeroService.astro";
 import Layout from "../../layouts/Layout.astro";
-import ServiceDetails from "@/sections//ServiceDetails.astro";
-import ServiceHighlights from "@/sections//ServiceHighlights.astro";
+import ServiceDetails from "../../components/section/ServiceDetails.astro";
+import ServiceHighlights from "../../components/section/ServiceHighlights.astro";
 
+const steps = [
+  {
+    id: "01",
+    title: "Investigación de Palabras Clave",
+    label: "Fase 01 — Análisis de Mercado",
+    text: "Realizamos una investigación exhaustiva para identificar las palabras clave más relevantes y con mayor potencial para tu negocio. Analizamos la competencia y las tendencias del mercado para definir una estrategia efectiva que aumente tu visibilidad en los motores de búsqueda.",
+    image: "/fases/seo/fase01.svg",
+  },
+  {
+    id: "02",
+    title: "Optimización On-Page",
+    label: "Fase 02 — Mejora del Sitio Web",
+    text: "Optimizamos el contenido y la estructura de tu sitio web para mejorar su relevancia y usabilidad. Esto incluye la optimización de metaetiquetas, encabezados, imágenes, enlaces internos y la mejora de la velocidad de carga, asegurando que tu sitio cumpla con las mejores prácticas de SEO.",
+    image: "/fases/seo/fase02.svg",
+  },
+  {
+    id: "03",
+    title: "Estrategia de Contenido",
+    label: "Fase 03 — Creación de Contenido",
+    text: "Desarrollamos una estrategia de contenido que atraiga y retenga a tu audiencia objetivo. Creamos contenido relevante, valioso y optimizado para SEO que responda a las necesidades e intereses de tus usuarios, ayudando a posicionar tu sitio como una autoridad en tu industria.",
+    image: "/fases/seo/fase03.svg",
+  },
+  {
+    id: "04",
+    title: "Optimización Off-Page",
+    label: "Fase 04 — Construcción de Enlaces",
+    text: "Implementamos estrategias de construcción de enlaces para aumentar la autoridad y credibilidad de tu sitio web. Esto incluye la obtención de backlinks de calidad, colaboraciones con influencers y la participación en comunidades relevantes para mejorar tu posicionamiento en los motores de búsqueda.",
+    image: "/fases/seo/fase04.svg",
+  },
+  {
+    id: "05",
+    title: "Monitoreo y Reportes",
+    label: "Fase 05 — Análisis Continuo",
+    text: "Realizamos un seguimiento constante del rendimiento de tu sitio web utilizando herramientas analíticas avanzadas. Proporcionamos informes detallados sobre el tráfico, las conversiones y el posicionamiento, ajustando la estrategia de SEO según sea necesario para asegurar resultados óptimos a largo plazo.",
+    image: "/fases/seo/fase05.svg",             
+    },
+];
 
 ---
 
@@ -12,9 +49,9 @@ import ServiceHighlights from "@/sections//ServiceHighlights.astro";
         title="Optimización en Motores de Búsqueda (SEO)"
         subtitle="Mejora la visibilidad de tu sitio web y atrae más tráfico orgánico con nuestras estrategias de SEO efectivas."
         description="Nuestro equipo de expertos en SEO utiliza técnicas probadas para optimizar tu sitio web, mejorar su posicionamiento en los motores de búsqueda y aumentar la cantidad de visitantes cualificados. Desde la investigación de palabras clave hasta la optimización on-page y off-page, te ayudamos a alcanzar tus objetivos de marketing digital."
-        image="/public/serivice_web.jpeg"
+        image="/seo_page.svg"
     />
-    <ServiceDetails />
+    <ServiceDetails title="Proceso de Optimización en Motores de Búsqueda" subtitle="Descubre cómo mejoramos la visibilidad de tu sitio web" steps={steps} />
     
     <ServiceHighlights />
 </Layout>
